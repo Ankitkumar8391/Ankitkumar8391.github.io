@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Ankit | 19BCS4086</title>
+</head>
+
+<body class="font-mono">
+    <h1 class="bg-blue-700 text-white font-bold text-center p-2 rounded-md 
+m-4 text-2xl">
+        19BCS4086 | Count Type of Characters in a String
+    </h1>
+    <div class="flex justify-around">
+        <div class="w-4/5 p-0.5">
+            <input onkeydown="count()" onkeyup="count()" type="text" id="text" class="border-2 border-blue-700 border-rounded-md p-2 rounded-md 
+text-lg m-6 w-full bg-blue-100">
+        </div>
+    </div>
+    <div class="flex justify-around">
+        <table class="border-separate border border-green-800 text-lg ...">
+            <thead>
+                <tr>
+                    <th class="p-4 border border-green-600 ...">Parameter</th>
+                    <th class="p-4 border border-green-600 ...">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p-4 border border-green-600 ...">Uppercase
+                        Alphabets</td>
+                    <td id="up" class="p-4 border border-green-600 ...">0</td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-green-600 ...">Lowercase
+                        Alphabets</td>
+                    <td id="low" class="p-4 border border-green-600 ...">0</ td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-green-600 ...">Numbers</td>
+                    <td id="num" class="p-4 border border-green-600 ...">0</ td>
+                </tr>
+                <tr>
+                    <td class="p-4 border border-green-600 ...">Others</td>
+                    <td id="other" class="p-4 border border-green-600 ...">0</ td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <script>
+        function count() {
+            var s = document.getElementById("text").value
+            var numUpper = s.length - s.replace(/[A-Z]/g, '').length;
+            var numLow = s.length - s.replace(/[a-z]/g, '').length;
+            var numNum = s.length - s.replace(/[0-9]/g, '').length;
+            var space = s.length - s.replace(/([\s]+)/g, '').length;
+            var others = s.length - numUpper - numLow - numNum - space
+            document.getElementById("up").innerHTML = numUpper;
+            document.getElementById("low").innerHTML = numLow;
+            document.getElementById("num").innerHTML = numNum;
+            document.getElementById("other").innerHTML = others;
+        }
+    </script>
+</body>
+
+</html>
